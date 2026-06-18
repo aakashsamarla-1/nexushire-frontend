@@ -1,7 +1,7 @@
 ﻿import { useState, useEffect } from "react";
 
-// API URL from environment variable or default to localhost
-const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
+// API URL - Hardcoded to Render backend
+const API_URL = "https://nexushire-backend.onrender.com";
 
 export const useResumeAnalysis = () => {
   const [loading, setLoading] = useState(false);
