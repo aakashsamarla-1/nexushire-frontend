@@ -1,0 +1,350 @@
+﻿/* Add these styles to your App.css */
+
+/* Toast overrides */
+.toast-container {
+  z-index: 9999;
+}
+
+/* Drag and Drop */
+.upload-box {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.upload-box.drag-active {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.05);
+  transform: scale(1.02);
+}
+.drag-text {
+  font-size: 18px;
+  color: #667eea;
+  font-weight: 600;
+}
+.drag-instruction {
+  color: #6b7280;
+  font-size: 14px;
+}
+.drag-hint {
+  color: #9ca3af;
+  font-size: 12px;
+  margin-top: 8px;
+}
+.uploading-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+.spinner-small {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e5e7eb;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Skeleton Loading */
+.skeleton-container {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.skeleton-card {
+  background: #f3f4f6;
+  border-radius: 12px;
+  padding: 24px;
+  height: 200px;
+}
+.skeleton-circle {
+  width: 50px;
+  height: 50px;
+  background: #e5e7eb;
+  border-radius: 50%;
+  margin: 0 auto 12px;
+}
+.skeleton-line {
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 6px;
+  margin: 8px 0;
+}
+.skeleton-line.short {
+  width: 60%;
+  margin: 8px auto;
+}
+.skeleton-item {
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 10px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Radar Chart */
+.radar-container {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #e5e7eb;
+}
+.radar-title {
+  text-align: center;
+  color: #1f2937;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+/* Candidate Notes */
+.candidate-notes {
+  background: #f9fafb;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px 0;
+  border: 1px solid #e5e7eb;
+}
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.notes-header h4 {
+  color: #1f2937;
+  font-size: 14px;
+  margin: 0;
+}
+.edit-notes-btn {
+  background: none;
+  border: none;
+  color: #667eea;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+.edit-notes-btn:hover {
+  background: #e5e7eb;
+}
+.notes-display {
+  cursor: pointer;
+  padding: 8px;
+  min-height: 40px;
+}
+.notes-display p {
+  color: #374151;
+  font-size: 14px;
+  margin: 0;
+}
+.notes-placeholder {
+  color: #9ca3af !important;
+  font-style: italic;
+}
+.notes-editor textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+}
+.notes-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.save-notes-btn {
+  background: #667eea;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.save-notes-btn:hover {
+  background: #5a6fd6;
+}
+.cancel-notes-btn {
+  background: #e5e7eb;
+  color: #374151;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.cancel-notes-btn:hover {
+  background: #d1d5db;
+}
+
+/* History Search */
+.history-search {
+  margin-bottom: 16px;
+}
+.search-bar {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.search-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  min-width: 200px;
+}
+.search-input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+.filter-select {
+  padding: 10px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  background: white;
+  cursor: pointer;
+}
+.filter-select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+/* Dark Mode */
+[data-theme="dark"] {
+  --bg-primary: #1a1a2e;
+  --bg-secondary: #2d2d44;
+  --bg-tertiary: #3d3d5c;
+  --text-primary: #e2e8f0;
+  --text-secondary: #a0aec0;
+  --border-color: #4d4d6c;
+}
+
+[data-theme="dark"] body {
+  background: #1a1a2e;
+}
+
+[data-theme="dark"] .sidebar {
+  background: #1a1a2e;
+  border-color: #2d2d44;
+}
+[data-theme="dark"] .sidebar-header {
+  border-color: #2d2d44;
+}
+[data-theme="dark"] .sidebar-header h2 {
+  color: white;
+}
+[data-theme="dark"] .sidebar-nav button {
+  color: #a0aec0;
+}
+[data-theme="dark"] .sidebar-nav button:hover {
+  background: #2d2d44;
+}
+[data-theme="dark"] .sidebar-nav button.active {
+  background: #2d2d44;
+  color: #667eea;
+}
+[data-theme="dark"] .sidebar-bottom {
+  border-color: #2d2d44;
+}
+[data-theme="dark"] .sidebar-bottom button {
+  color: #a0aec0;
+}
+[data-theme="dark"] .main-content {
+  background: #1a1a2e;
+}
+[data-theme="dark"] .upload-section,
+[data-theme="dark"] .results-section,
+[data-theme="dark"] .history-section,
+[data-theme="dark"] .card,
+[data-theme="dark"] .radar-container {
+  background: #2d2d44;
+  border-color: #3d3d5c;
+}
+[data-theme="dark"] .upload-header h2,
+[data-theme="dark"] .card h3,
+[data-theme="dark"] .summary-card p,
+[data-theme="dark"] .history-item strong {
+  color: #e2e8f0;
+}
+[data-theme="dark"] .upload-header p,
+[data-theme="dark"] .section-desc,
+[data-theme="dark"] .history-item small {
+  color: #a0aec0;
+}
+[data-theme="dark"] .history-item {
+  background: #3d3d5c;
+  border-color: #4d4d6c;
+}
+[data-theme="dark"] .history-item:hover {
+  background: #4d4d6c;
+}
+[data-theme="dark"] .upload-box {
+  border-color: #4d4d6c;
+}
+[data-theme="dark"] .upload-box.drag-active {
+  border-color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
+}
+[data-theme="dark"] .drag-instruction {
+  color: #a0aec0;
+}
+[data-theme="dark"] textarea {
+  background: #3d3d5c;
+  color: #e2e8f0;
+  border-color: #4d4d6c;
+}
+[data-theme="dark"] textarea::placeholder {
+  color: #6b7280;
+}
+[data-theme="dark"] .candidate-notes {
+  background: #3d3d5c;
+  border-color: #4d4d6c;
+}
+[data-theme="dark"] .notes-header h4 {
+  color: #e2e8f0;
+}
+[data-theme="dark"] .notes-display p {
+  color: #a0aec0;
+}
+[data-theme="dark"] .search-input {
+  background: #3d3d5c;
+  color: #e2e8f0;
+  border-color: #4d4d6c;
+}
+[data-theme="dark"] .search-input::placeholder {
+  color: #6b7280;
+}
+[data-theme="dark"] .filter-select {
+  background: #3d3d5c;
+  color: #e2e8f0;
+  border-color: #4d4d6c;
+}
+[data-theme="dark"] .score-card {
+  background: linear-gradient(135deg, #1a1a2e, #2d2d44);
+}
+[data-theme="dark"] .tag.success {
+  background: #065f46;
+  color: #34d399;
+}
+[data-theme="dark"] .tag.missing {
+  background: #7f1d1d;
+  color: #f87171;
+}
+[data-theme="dark"] .skeleton-card,
+[data-theme="dark"] .skeleton-circle,
+[data-theme="dark"] .skeleton-line,
+[data-theme="dark"] .skeleton-item {
+  background: #3d3d5c;
+}
