@@ -1,5 +1,8 @@
 ﻿import { useState, useEffect } from "react";
 
+// API URL from environment variable or default to localhost
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
+
 export const useResumeAnalysis = () => {
   const [loading, setLoading] = useState(false);
   const [analysis, setAnalysis] = useState(null);
@@ -44,7 +47,7 @@ export const useResumeAnalysis = () => {
 
       console.log("Calling backend for:", resumeFileName);
       
-      const response = await fetch("http://localhost:8080/api/upload-resume", {
+      const response = await fetch(`${API_URL}/api/upload-resume`, {
         method: "POST",
         body: formData,
       });
@@ -58,7 +61,6 @@ export const useResumeAnalysis = () => {
       const data = await response.json();
       console.log("Backend response:", data);
       
-      // Extract data from backend response - map improvements to recommendations
       const result = {
         score: data.score || data.overallScore || 70,
         atsScore: data.atsScore || data.score || 65,
@@ -68,9 +70,7 @@ export const useResumeAnalysis = () => {
         summary: data.summary || data.recruiterSummary || "Analysis completed successfully",
         strengths: data.strengths || ["Strong technical skills", "Good communication", "Team player"],
         missingSkills: data.missingSkills || data.skillGaps || ["Advanced algorithms", "Cloud architecture"],
-        // Map improvements to recommendations for frontend
         recommendations: data.improvements || data.recommendations || ["Keep learning", "Practice coding", "Build projects"],
-        // Also keep improvements for backward compatibility
         improvements: data.improvements || data.recommendations || ["Keep learning", "Practice coding", "Build projects"],
         id: Date.now(),
         timestamp: new Date().toISOString(),
@@ -92,7 +92,6 @@ export const useResumeAnalysis = () => {
       console.error("Analysis error:", err);
       setError(err.message || "Analysis failed. Please try again.");
       
-      // Fallback mock data with good recommendations
       const fallbackResult = {
         score: Math.floor(Math.random() * 25) + 65,
         atsScore: Math.floor(Math.random() * 25) + 60,
